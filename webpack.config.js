@@ -8,12 +8,12 @@ const commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CleanPlugin = require('clean-webpack-plugin');
 
-const outputFolder = './csm_workbench/static/js'
+const outputFolder = './csm_workbench/static/dist'
 
 module.exports = {
     devtool:"cheap-module-eval-source-map",
     entry: {
-        dashboard:'./csm_entry/dashboard.js',
+        dashboard:'./csm_workbench/static/src/dashboard.js',
         //app2:'./src/js/app2.js',
     },
     output: {
