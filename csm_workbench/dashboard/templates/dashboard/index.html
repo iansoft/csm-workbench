@@ -1,0 +1,21 @@
+{% extends "master.html" %}
+{% block page-title %} Condata Storage Manager {% endblock %}
+
+{% block css %}{{ block.super }}{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    {% load i18n %}
+    <div id="demo"></div>
+
+    <br>
+
+    <div id="reddit"></div>
+
+{% endblock %}
+
+
+{% block js %}
+    {{ block.super }}
+    <script type="text/javascript" src="/static/js/csm.dashboard.bundle.js"></script>
+{% endblock %}
