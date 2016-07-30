@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url,include
 
 urlpatterns = [
+    #login
+    url(r'^auth/', include('login.urls')),
     # homepage
     url(r'^', include('dashboard.urls')),
     url(r'^home/', include('dashboard.urls')),

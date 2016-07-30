@@ -4,7 +4,7 @@
 // $ webpack -d//生成map映射文件，告知哪些模块被最终打包到哪里了
 
 const webpack = require('webpack');
-const commonsPlugin = new webpack.optimize.CommonsChunkPlugin('csm.common.js');
+const commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CleanPlugin = require('clean-webpack-plugin');
 
@@ -13,12 +13,12 @@ const outputFolder = './csm_workbench/static/js'
 module.exports = {
     devtool:"cheap-module-eval-source-map",
     entry: {
-        dashboard:'./csm_entry/csm.dashboard.js',
+        dashboard:'./csm_entry/dashboard.js',
         //app2:'./src/js/app2.js',
     },
     output: {
         path: outputFolder,
-        filename: 'csm.[name].bundle.js',
+        filename: '[name].bundle.js',
         chunkFilename: "[name].js"
     },
     module: {
