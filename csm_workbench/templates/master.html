@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--<html lang="zh-cn">-->
-<html lang="en-us">
+<html lang="en-us" class="layout-pf layout-pf-fixed">
     <head>
         <title>{% block page-title %}{% endblock %}</title>
 
@@ -16,11 +16,26 @@
             <!-- Note: No other CSS files are needed regardless of what other JS packages located in patternfly/components that you decide to pull in -->
             <link rel="stylesheet" href="../static/plugins/patternfly/dist/css/patternfly.min.css">
             <link rel="stylesheet" href="../static/plugins/patternfly/dist/css/patternfly-additions.min.css">
+            <link rel="stylesheet" href="../static/dist/patternfly-site.min.css">
         {% endblock %}
         <!-- EOF CSS INCLUDE -->
     </head>
 
     <body>
+        <!-- START PAGE TOP -->
+        {% include "top.html" %}
+        <!-- END PAGE TOP -->
+
+        <!-- START PAGE MENU -->
+        {% include "menu2.html" %}
+        <!-- END PAGE MENU -->
+
+        <!--<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Library</a></li>
+  <li class="active">Data</li>
+</ol>-->
+
         <!-- START PAGE CONTAINER -->
         <div class="page-container">
             <div class="page-content-wrap">
@@ -81,7 +96,12 @@
 
 
             <script type="text/javascript" src="/static/dist/common.js"></script>
+            <script type="text/javascript" src="/static/dist/master.bundle.js"></script>
         {% endblock %}
         <!-- END JAVASCRIPT -->
+
+        <script>
+</script>
+
     </body>
 </html>

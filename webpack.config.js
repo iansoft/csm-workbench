@@ -13,6 +13,7 @@ const outputFolder = './csm_workbench/static/dist'
 module.exports = {
     devtool:"cheap-module-eval-source-map",
     entry: {
+        master:'./csm_workbench/static/src/master.js',
         dashboard:'./csm_workbench/static/src/dashboard.js',
         //app2:'./src/js/app2.js',
     },
