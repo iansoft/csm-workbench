@@ -43,13 +43,22 @@ OPENSTACK_APPS = (
     'openstack_auth',
 )
 
-# CSM Apps
-CSM_APPS = (
+# CSM System Apps
+CSM_SYSTEM_APPS = (
     'login',
     'dashboard',
+    'manage_menu',
+    'manage_account',
 )
 
-INSTALLED_APPS = DJANGO_APPS + OPENSTACK_APPS + CSM_APPS
+# CSM Business Apps
+CSM_BUSINESS_APPS = (
+    'manage_cluster',
+    'manage_server',
+    'manage_storage',
+)
+
+INSTALLED_APPS = DJANGO_APPS + OPENSTACK_APPS + CSM_SYSTEM_APPS + CSM_BUSINESS_APPS
 
 
 MIDDLEWARE_CLASSES = [
@@ -94,11 +103,14 @@ WSGI_APPLICATION = 'csm_workbench.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'csm',
+        'USER': 'root',
+        'PASSWORD': '123456',
+        'HOST': '139.196.208.113',
+        'PORT': '3306',
     }
 }
 

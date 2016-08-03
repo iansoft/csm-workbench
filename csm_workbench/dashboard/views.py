@@ -1,12 +1,15 @@
 # _*_ coding: utf-8 _*_
 import json
-from django.views.generic import TemplateView
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils.translation import ugettext_lazy as _
+#from django.views.generic import TemplateView
+from csm.views import CSMView
 
-
-class IndexView(TemplateView):
+class IndexView(CSMView):
     template_name = 'dashboard/index.html'
+    
+    def _roles_menu(self):
+        return "admin", "Server"
 
     def dispatch(self, request, *args, **kwargs):
         return super(IndexView, self).dispatch(request, *args, **kwargs)

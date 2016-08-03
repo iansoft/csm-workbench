@@ -1,0 +1,38 @@
+<nav class="navbar navbar-sidebar ">
+    <ul>
+        <li class="secondary-menu">
+            <!--START THE MENU TITLE-->
+            <a class="secondary-menu-toggle">
+                <span class="secondary-menu-toggle-icon">CSM Workbench</span>
+            </a>
+            <!--END THE MENU TITLE-->
+
+            <!--START THE MENU TREE-->
+            <ul>
+                {%for menu in menu_list%}
+                    <li class="{{menu.active}}">
+                        {% if menu.children|length_is:"0" %}   
+                            <a href="{{menu.url}}">{{menu.name}}</a>
+                        {% else %}
+                            <a class="collapsed" role="button" data-toggle="collapse" href="#menu_{{menu.id}}" aria-expanded="false" aria-controls="application-framework-secondary">
+                                {{menu.name}}
+                            </a>
+                            {% if menu.active == "active" %}
+                                <ul class="collapse in" id="menu_{{menu.id}}">
+                            {% else %}
+                                <ul class="collapse " id="menu_{{menu.id}}">
+                            {%endif%}
+                                {%for sub_menu in menu.children%}
+                                    <li class="{{sub_menu.active}}">
+                                        <a href="{{sub_menu.url}}">{{sub_menu.name}}</a>
+                                    </li>
+                                {%endfor%}
+                            </ul>
+                        {%endif%}
+                    </li>
+                {%endfor%}
+            </ul>
+            <!--END THE MENU TREE-->
+        </li>
+    </ul>
+</nav>
