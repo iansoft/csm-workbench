@@ -4,7 +4,12 @@
 
 .dt-buttons{
     width: 200px;
+    text-align: right;
     position: absolute;
-    right: 20px;
+    right: 5px;
     top: 6px;
+}
+
+.dt-buttons>a{
+    margin-right: 5px;
 }

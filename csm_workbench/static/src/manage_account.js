@@ -1,9 +1,24 @@
+ var tables;
 $(function(){
-     var table = $('#tAccount').DataTable({
+     tables = $('#tAccount').DataTable({
         //DOM元素的布局设置
         //"dom": 'Bfrtip',
 
-         buttons: [  'csv', 'excel' ],
+         buttons: [
+            {
+                extend: 'csv',
+                text: 'Download CSV',
+                className: 'btn btn-default' 
+            },
+            {
+                //这是一个自定义的按钮
+                text: 'Reload',
+                className: 'btn btn-default',
+                action: function ( e, dt, node, config ) {
+                    dt.ajax.reload();
+                }
+            }
+        ],
        
 
         //状态
@@ -91,14 +106,10 @@ $(function(){
     //     ]
     // } );
 
-    table.buttons().container()
-    .appendTo( $(".dataTables_header")  );
+   
 
     // table.buttons().container()
-    // .appendTo( table.table().container() ) ;
-
-    console.log(table.buttons().container());
-    console.log(table.table().container());
+    // .appendTo( table.table().container() ) ;;
 
     //进行默认设置，但是可以除了指定的选项
     // $.extend( true, $.fn.dataTable.defaults, {
@@ -126,7 +137,21 @@ $(function(){
     //     .on( 'page.dt',   function () { eventFired( 'Page' ); } )
     //     .DataTable();
 
-})
+    addButtons();
+
+});
+
+
+function addButtons(){
+    tables.buttons().container()
+    .appendTo($(".dataTables_header"));
+
+    // $(".dt-buttons>a").each((index,element)=>{
+    //     element.className += " btn btn-default";
+    // });
+}
+
+ 
 
 
 // 如果用一条语句实现多个table的设置
