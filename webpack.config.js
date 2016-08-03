@@ -29,7 +29,7 @@ module.exports = {
     module: {
         //"-loader"其实是可以省略不写的，多个loader之间用“!”连接起来。
         loaders: [
-            {test: /\.js$/,loader: 'babel-loader',exclude: /node_modules/,},
+            {test: /\.js$/,loader: 'babel-loader?sourceMap',exclude: /node_modules/,},
             {test: /\.css$/, loader: 'style-loader!css-loader',exclude: /node_modules/,},
             {test: /\.scss$/, loader: 'style!css!sass?sourceMap',exclude: /node_modules/,},	
             //{test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192',exclude: /node_modules/,},

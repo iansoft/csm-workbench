@@ -1,0 +1,10 @@
+.table-responsive{
+    overflow: visible;
+}
+
+.dt-buttons{
+    width: 200px;
+    position: absolute;
+    right: 20px;
+    top: 6px;
+}

@@ -8,21 +8,81 @@
     {% load i18n %}
 
     <!--END THE ACCOUNT LIST-->
-    <table id="tAccount" class="datatable table table-striped table-bordered">
+    <table id="tAccount" class="datatable table table-striped table-bordered hover">
         <thead>
             <tr>
                 <th>User Name</th>
                 <th>Full Name</th>
                 <th>Email</th>
-                <th style="width:60px;">Admin</th>
+                <th>Admin</th>
                 <th>Group</th>
                 <th>keyring</th>
                 <th>keystone</th>
                 <th>Action</th>
             </tr>
         </thead>
+
+        <tbody>
+            <tr>
+                <td>name1</td>
+                <td>name2</td>
+                <td>123@qq.com</td>
+                <td>yes</td>
+                <td>keyring1234</td>
+                <td>name</td>
+                <td>keystone</td>
+                <td><div class="btn-group" role="group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Dropdown link</a></li>
+      <li><a href="#">Dropdown link</a></li>
+    </ul>
+  </div></td>
+            </tr>
+            <tr>
+                <td>name2</td>
+                <td>name3</td>
+                <td>123@qq.com</td>
+                <td>yes</td>
+                <td>keyring1234</td>
+                <td>name</td>
+                <td>keystone</td>
+                <td><div class="btn-group" role="group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Dropdown link</a></li>
+      <li><a href="#">Dropdown link</a></li>
+    </ul>
+  </div></td>
+            </tr>
+        </tbody>
+
+        <!--<tfoot>
+            <tr>
+                <th>User Name</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Admin</th>
+                <th>Group</th>
+                <th>keyring</th>
+                <th>keystone</th>
+                <th>Action</th>
+            </tr>
+        </tfoot>-->
+
     </table>
     <!--END THE ACCOUNT LIST -->
+
+<div id="good">
+
+    dds
+</div>
 
 {% endblock %}
 
