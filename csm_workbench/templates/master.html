@@ -30,19 +30,19 @@
         <!-- START PAGE MENU -->
         {% include "menu3.html" %}
         <!-- END PAGE MENU -->
-
-        <!--<ol class="breadcrumb">
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Library</a></li>
-  <li class="active">Data</li>
-</ol>-->
-
+        
         <!-- START PAGE CONTAINER -->
         <div class="page-container">
-            <div class="page-content-wrap">
-                {% block content %}
-                    <!-- include your custom page -->
-                {% endblock %}
+            <div class="clearfix row" id="content">
+                <div id="main" class="col-md-12 clearfix" role="main">
+                    {% include "breadcrumb.html" %}
+                    {% include "page_title.html" %}
+                    <div class="page-content-wrap">
+                        {% block content %}
+                            <!-- include your custom page -->
+                        {% endblock %}
+                    </div>
+                </div>
             </div>
         </div>
         <!-- END PAGE CONTAINER -->

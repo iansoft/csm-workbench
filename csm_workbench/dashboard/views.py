@@ -7,9 +7,9 @@ from csm.views import CSMView
 
 class IndexView(CSMView):
     template_name = 'dashboard/index.html'
-    
-    def _roles_menu(self):
-        return "admin", "Server"
+
+    def _page_variables(self):
+        return "admin", "Dashboard", "Dashboard"
 
     def dispatch(self, request, *args, **kwargs):
         return super(IndexView, self).dispatch(request, *args, **kwargs)

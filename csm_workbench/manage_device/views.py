@@ -6,10 +6,10 @@ from django.utils.translation import ugettext_lazy as _
 from csm.views import CSMView
 
 class IndexView(CSMView):
-    template_name = 'manage_server/index.html'
+    template_name = 'manage_device/index.html'
     
     def _page_variables(self):
-        return "admin", "Server", "Manage Server"
+        return "admin", "Device", "Manage Device"
 
     def dispatch(self, request, *args, **kwargs):
         return super(IndexView, self).dispatch(request, *args, **kwargs)

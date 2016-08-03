@@ -22,4 +22,10 @@ urlpatterns = [
     url(r'^', include('dashboard.urls')),
     url(r'^home/', include('dashboard.urls')),
     url(r'^dashboard/', include('dashboard.urls')),
+    # business 
+    url(r'^cluster/', include('manage_cluster.urls')),
+    url(r'^server/', include('manage_server.urls')),
+    url(r'^device/', include('manage_device.urls')),
+    # csm system
+    url(r'^account/', include('manage_account.urls')),
 ]

@@ -12,13 +12,8 @@ def init_menu(menu_config):
 			sub_menu = Menu(name=sub_m["name"], url=sub_m["url"], icon=sub_m["icon"], openable=sub_m["openable"], parentID=menu.id)
 			sub_menu.save()
 
-def set_menu(role_name, menu_name):
-    #get the roles' name
-	# role_name_list = []
-	# for role in roles:
-	# 	role_name_list.append("'"+role["name"]+"'")
-	# str_role_name_list= ','.join(role_name_list)
 
+def get_dataset(role_name):
 	#generate the sql
 	sql='''SELECT id, name, url, icon, openable, active, parentID, deleted 
 		FROM t_menu
@@ -37,6 +32,9 @@ def set_menu(role_name, menu_name):
 		c.execute(sql)
 		dataset = dictfetchall(c)
 
+	return dataset
+
+def set_menu(dataset, menu_name):
 	# get all the menu item 
 	menu_list = []
 	selected_menu_parentID = 0
@@ -71,3 +69,36 @@ def set_menu(role_name, menu_name):
 					m["active"] = "active"
 				p["children"].append(m)
 	return parent_menu
+
+def set_breadcrumb(dataset, menu_name):
+	#define the breadcrumb list
+	breadcrumb_list = []
+	parent_id = 0
+	for m in dataset:
+		if m["name"] == menu_name:
+			active = "active"
+			parent_id = m["parentID"]
+			breadcrumb = {
+				"id":m["id"],
+				"name":m["name"],
+				"url":m["url"],
+				"active":"active",
+			}
+			breadcrumb_list.insert(0,breadcrumb)
+			break
+	
+	# get the menu tree
+	for p in dataset:
+		if p["id"] == parent_id:
+			breadcrumb = {
+				"id":p["id"],
+				"name":p["name"],
+				"url":p["url"],
+				"active":"",
+			}
+			breadcrumb_list.insert(0,breadcrumb)
+			break
+
+	return breadcrumb_list
+			
+			

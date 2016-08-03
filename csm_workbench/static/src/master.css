@@ -8,4 +8,5 @@
 .page-container {
     position:fixed;
     left:250px;
+    width: 100%;
 }
