@@ -17,6 +17,7 @@ module.exports = {
         login3:'./csm_workbench/static/src/login3.js',
         master:'./csm_workbench/static/src/master.js',
         dashboard:'./csm_workbench/static/src/dashboard.js',
+        manage_account:'./csm_workbench/static/src/manage_account.js',
         //app2:'./src/js/app2.js',
     },
     output: {

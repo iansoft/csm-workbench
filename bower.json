@@ -7,6 +7,7 @@
     "patternfly": "^3.7.0"
   },
   "devDependencies": {
-    "tweenlite": "^1.11.5"
+    "tweenlite": "^1.11.5",
+    "bootstrap-table": "^1.11.0"
   }
 }
