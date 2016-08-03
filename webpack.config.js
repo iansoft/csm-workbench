@@ -13,6 +13,8 @@ const outputFolder = './csm_workbench/static/dist'
 module.exports = {
     devtool:"cheap-module-eval-source-map",
     entry: {
+        login2:'./csm_workbench/static/src/login2.js',
+        login3:'./csm_workbench/static/src/login3.js',
         master:'./csm_workbench/static/src/master.js',
         dashboard:'./csm_workbench/static/src/dashboard.js',
         //app2:'./src/js/app2.js',
@@ -20,6 +22,7 @@ module.exports = {
     output: {
         path: outputFolder,
         filename: '[name].bundle.js',
+        publicPath: "/static/",
         chunkFilename: "[name].js"
     },
     module: {
@@ -28,7 +31,8 @@ module.exports = {
             {test: /\.js$/,loader: 'babel-loader',exclude: /node_modules/,},
             {test: /\.css$/, loader: 'style-loader!css-loader',exclude: /node_modules/,},
             {test: /\.scss$/, loader: 'style!css!sass?sourceMap',exclude: /node_modules/,},	
-            {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192',exclude: /node_modules/,}
+            //{test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192',exclude: /node_modules/,},
+            {test: /\.(png|jpg)$/, loader: "file-loader?name=img/[name].[ext]",exclude: /node_modules/,}
             //{test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader","css-loader") }, 
         ]
     },

@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class IndexView(TemplateView):
-    template_name = 'login/index.html'
+    template_name = 'login/login3.html'
 
     def dispatch(self, request, *args, **kwargs):
         return super(IndexView, self).dispatch(request, *args, **kwargs)
