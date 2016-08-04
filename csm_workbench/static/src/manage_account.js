@@ -152,7 +152,18 @@ function addButtons(){
 }
 
 $('#mAccount')
-    .on('shown.bs.modal', function (e) {
+    .on('show.bs.modal', function (event) {
+        let button = $(event.relatedTarget) 
+        let action = button.data('action')
+
+        let modal = $(this)
+        if(action == "add"){
+             modal.find('.modal-title').text('Add Account');
+        }
+        else if(action == "edit"){
+            modal.find('.modal-title').text('Edit Account');
+        }
+       
         console.log("打开模态框!");
     })
     .on('hidden.bs.modal', function (e) {

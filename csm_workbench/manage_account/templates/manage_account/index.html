@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-md-12 page-actions">
-            <button id="btnAddAccount" class="btn btn-default" data-toggle="modal" data-target="#mAccount">
+            <button id="btnAddAccount" class="btn btn-default" data-toggle="modal" data-target="#mAccount" data-action="add">
                 Add Account
             </button>
         </div>
@@ -40,10 +40,12 @@
                 <td>name</td>
                 <td>keystone</td>
                 <td>
-                    <div class="btn-group" role="group">
+                    <!-- Split button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#mAccount" data-action="edit">Edit</button>
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Edit
-                        <span class="caret"></span>
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="#">Enable/Disable</a></li>
@@ -62,9 +64,10 @@
                 <td>keystone</td>
                 <td>
                     <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#mAccount" data-action="edit">Edit</button>
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Edit
-                        <span class="caret"></span>
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="#">Enable/Disable</a></li>
@@ -77,42 +80,81 @@
     </table>
     <!--END THE ACCOUNT LIST -->
 
-
     <div id="mAccount"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mAccountLabel">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 id="mAccountLabel" class="modal-title">Modal title</h4>
+                <h4 id="mAccountLabel" class="modal-title"></h4>
             </div>
             <div class="modal-body">
-                <div class="alert alert-danger">
-        <span class="pficon pficon-error-circle-o"></span>
-        <strong>Hey there is a problem!</strong> Yeah this is really messed up and you should <a href="#" class="alert-link">know about it</a>.
-        </div>
-
+                <!--START ALERT-->
+                <!--<div class="alert alert-danger">
+                    <span class="pficon pficon-error-circle-o"></span>
+                    <strong>Hey there is a problem!</strong> Yeah this is really messed up and you should <a href="#" class="alert-link">know about it</a>.
+                </div>-->
+                <!--END ALERT-->
+                <!--START FORM-->
                 <form class="form-horizontal">
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="modalInput">Default</label>
-                    <div class="col-sm-10">
-                    <input type="text" id="modalInput" class="form-control"></div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="modalInputDisabled">Disabled</label>
-                    <div class="col-sm-10">
-                    <input type="text" id="modalInputDisabled" class="form-control" disabled></div>
-                </div>
-                <div class="form-group has-error">
-                    <label class="col-sm-2 control-label" for="modalInputError">With error</label>
-                    <div class="col-sm-10">
-                    <input type="text" id="modalInputError" class="form-control">
-
-                    <span class="help-block">Please correct the error</span>
-
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="modalInput">User Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="modalInput" class="form-control">
+                            <span class="help-block"></span>
+                        </div>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="modalInput">Password</label>
+                        <div class="col-sm-9">
+                            <input type="password" id="modalInput" class="form-control">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="modalInput">Retype Password</label>
+                        <div class="col-sm-9">
+                            <input type="password" id="modalInput" class="form-control">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="modalInput">Role</label>
+                        <div class="col-sm-9">
+                            <select class="form-control">
+                                <option value="0">admin</option>
+                                <option value="1">operator</option>
+                                <option value="2">user</option>
+                            </select>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="modalInput">Domain</label>
+                        <div class="col-sm-9">
+                            <select class="form-control">
+                                <option value="0">default</option>
+                                <option value="1">default2</option>
+                                <option value="2">default3</option>
+                            </select>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <!--<div class="form-group">
+                        <label class="col-sm-2 control-label" for="modalInputDisabled">Disabled</label>
+                        <div class="col-sm-10">
+                        <input type="text" id="modalInputDisabled" class="form-control" disabled></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="modalInputError">With error</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="modalInputError" class="form-control">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>-->
                 </form>
+                <!--END FORM-->
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
