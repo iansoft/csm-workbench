@@ -91,7 +91,7 @@ $(function(){
 
         //当数据row产生的回调函数
         "createdRow": function ( row, data, index ) {
-             console.log(row);
+             //console.log(row);
          },
 
          //当点击header, footer的时候触发
@@ -151,6 +151,13 @@ function addButtons(){
     // });
 }
 
+$('#mAccount')
+    .on('shown.bs.modal', function (e) {
+        console.log("打开模态框!");
+    })
+    .on('hidden.bs.modal', function (e) {
+        console.log("关闭模态框!");
+    });
  
 
 
