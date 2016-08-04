@@ -2,6 +2,10 @@
     overflow: visible;
 }
 
+.dataTables_wrapper {
+    margin: 10px 0;
+}
+
 .dt-buttons{
     width: 200px;
     text-align: right;
@@ -10,6 +14,14 @@
     top: 6px;
 }
 
+.page-tabs-header {
+    margin-bottom: 10px;
+}
+
 .dt-buttons>a{
     margin-right: 5px;
+}
+
+.page-actions{
+    text-align: right;
 }

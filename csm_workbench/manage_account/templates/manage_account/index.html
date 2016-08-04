@@ -7,7 +7,13 @@
     {{ block.super }}
     {% load i18n %}
 
-    <!--END THE ACCOUNT LIST-->
+    <div class="row">
+        <div class="col-md-12 page-actions">
+            <button id="btnAddAccount" class="btn btn-default">Add Account</button>
+        </div>
+    </div>
+
+    <!--START THE ACCOUNT LIST-->
     <table id="tAccount" class="datatable table table-striped table-bordered hover">
         <thead>
             <tr>
@@ -31,16 +37,18 @@
                 <td>keyring1234</td>
                 <td>name</td>
                 <td>keystone</td>
-                <td><div class="btn-group" role="group">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Dropdown link</a></li>
-      <li><a href="#">Dropdown link</a></li>
-    </ul>
-  </div></td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Edit
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Enable/Disable</a></li>
+                            <li><a href="#" style="color:red">Delete</a></li>
+                        </ul>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td>name2</td>
@@ -50,31 +58,22 @@
                 <td>keyring1234</td>
                 <td>name</td>
                 <td>keystone</td>
-                <td><div class="btn-group" role="group">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Dropdown link</a></li>
-      <li><a href="#">Dropdown link</a></li>
-    </ul>
-  </div></td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Edit
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Enable/Disable</a></li>
+                            <li><a href="#" style="color:red">Delete</a></li>
+                        </ul>
+                    </div>
+                </td>
             </tr>
         </tbody>
 
-        <!--<tfoot>
-            <tr>
-                <th>User Name</th>
-                <th>Full Name</th>
-                <th>Email</th>
-                <th>Admin</th>
-                <th>Group</th>
-                <th>keyring</th>
-                <th>keystone</th>
-                <th>Action</th>
-            </tr>
-        </tfoot>-->
+        
 
     </table>
     <!--END THE ACCOUNT LIST -->
