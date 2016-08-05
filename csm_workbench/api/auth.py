@@ -1,7 +1,7 @@
 # _*_ coding: utf-8 _*_
 from django.db import connection
 from manage_menu.models import Menu
-from manage_account.models import Role, RoleMenu
+from manage_account.models import Role, RoleMenu, Account
 from sqlhelper import dictfetchall
 
 def init_role(role_config):
@@ -44,3 +44,32 @@ def get_domain_list():
         {"id":1, "name":"domain2"}
     ]
     return domain_list
+
+
+def create_account(account):
+    '''
+        account:{
+            "username": "",
+            "password": "",
+            "role_id": "",
+            "domain": "",
+        }
+           
+        return
+            0: success
+            1: failed
+    '''
+    try:
+        entity = Account(
+                username = account["username"],
+                password = account["password"],
+                role_id = account["role_id"],
+                domain = account["domain"]
+            )
+        entity.save()
+        if entity.id != None:
+            return 0
+        else:
+            return 1
+    except Exception as e:
+        print e

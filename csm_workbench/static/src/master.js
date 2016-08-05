@@ -1,5 +1,6 @@
 require("./master.css")
 
+
 $(document).ready(function() {
     $().setupVerticalNavigation(true);
 
@@ -8,5 +9,5 @@ $(document).ready(function() {
         handle: ".modal-header",   
         cursor: 'move',   
         refreshPositions: false  
-    });  
+    });
 });

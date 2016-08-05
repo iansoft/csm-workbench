@@ -26,6 +26,10 @@
     </head>
 
     <body class="has-sidebar">
+        <!--THE DJANGO CSRF TOKEN-->
+        {%csrf_token%}
+        <!--THE DJANGO CSRF TOKEN-->
+
         <header>
             <!-- START PAGE TOP -->
             {% include "top.html" %}
@@ -119,6 +123,7 @@
 
 
             <script type="text/javascript" src="/static/dist/common.js"></script>
+            <script type="text/javascript" src="/static/dist/csm.js"></script>
             <script type="text/javascript" src="/static/dist/master.bundle.js"></script>
         {% endblock %}
         <!-- END JAVASCRIPT -->

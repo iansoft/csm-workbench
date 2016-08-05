@@ -1,6 +1,14 @@
+//define some variables
+var tAccount = null;
+var vfAccount = null;
+
 $(function(){
+    //hide some controls
+    $("#btnCreate").hide();
+    $("#btnUpdate").hide();
+
     //render to table
-    var tables =  $('#tAccount')
+    tAccount =  $('#tAccount')
         .on('init.dt', function (e, settings, json) {
             //nothing to do
         })
@@ -30,28 +38,9 @@ $(function(){
         });
     
     //move the table.buttons to the correct position
-    tables.buttons().container()
+    tAccount.buttons().container()
             .appendTo($(".dataTables_header"));
 
-    //render the modal
-    $('#mAccount')
-        .on('show.bs.modal', function (event) {
-            let button = $(event.relatedTarget) 
-            let action = button.data('action')
-
-            let modal = $(this)
-            if(action == "add"){
-                modal.find('.modal-title').text('Add Account');
-            }
-            else if(action == "edit"){
-                modal.find('.modal-title').text('Edit Account');
-            }
-        
-            console.log("打开模态框!");
-        })
-        .on('hidden.bs.modal', function (e) {
-            console.log("关闭模态框!");
-        });
 
     //validate the account form 
     $('#fAccount')
@@ -88,7 +77,7 @@ $(function(){
                         },
                         identical: {
                             field: 'retypePassword',
-                            message: 'the password is not validate'
+                            message: 'please type the same password.'
                         }
                     }
                 },
@@ -99,7 +88,7 @@ $(function(){
                         },
                         identical: {
                             field: 'password',
-                            message: 'the password is not validate'
+                            message: 'please type the same password.'
                         }
                     }
                 },
@@ -112,5 +101,52 @@ $(function(){
                 }
             }
         });
+
+    //define the validator for account form 
+    vfAccount = $('#fAccount').data('bootstrapValidator'); 
+    // vfAccount.disableSubmitButtons(true);
+
+    //render the modal
+    $('#mAccount')
+        .on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) 
+            var action = button.data('action')
+
+            var modal = $(this)
+            if(action == "create"){
+                $("#btnCreate").show();
+                $("#btnEdit").hide();
+                modal.find('.modal-title').text('Add Account');
+            }
+            else if(action == "edit"){
+                $("#btnCreate").hide();
+                $("#btnEdit").show();
+                modal.find('.modal-title').text('Edit Account');
+            }
+        })
+        .on('hide.bs.modal', function (e) {
+            //reset the form anyway
+            vfAccount.resetForm();
+            $(".alert").remove();
+        }); 
+
+        
+        //es6...
+        $("#btnCreate").click(()=>{
+            vfAccount.validate();
+                if (vfAccount.isValid() == false){
+                    csmFormAlert("fAccount", "danger", "message!!!");
+                    return false;
+                }
+                else{
+                    console.log("create");
+                }
+        });
 });
+
+
+
+
+
+
 

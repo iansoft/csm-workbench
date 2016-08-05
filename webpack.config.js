@@ -11,8 +11,8 @@ const CleanPlugin = require('clean-webpack-plugin');
 const outputFolder = './csm_workbench/static/dist'
 
 module.exports = {
-    //devtool:"cheap-module-eval-source-map",
-    devtool:'cheap-module-source-map',
+    //if lack eval, es6 will compiler failed
+    devtool:"cheap-module-eval-source-map",
     entry: {
         login2:'./csm_workbench/static/src/login2.js',
         login3:'./csm_workbench/static/src/login3.js',

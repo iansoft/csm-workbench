@@ -20,3 +20,15 @@ class RoleMenu(models.Model):
     menu = models.ForeignKey(Menu)
     class Meta:
         db_table = 't_role_menu'
+
+
+class Account(models.Model):
+    '''
+        The account for csm 
+    '''
+    role = models.ForeignKey(Role, null=True)
+    username = models.CharField(max_length=45, null=True)
+    password = models.CharField(max_length=45, null=True)
+    domain = models.CharField(max_length=45, null=True)
+    class Meta:
+        db_table = 't_account'
