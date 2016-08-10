@@ -59,6 +59,8 @@ CSM_BUSINESS_APPS = (
     'manage_storage',
 )
 
+
+
 INSTALLED_APPS = DJANGO_APPS + OPENSTACK_APPS + CSM_SYSTEM_APPS + CSM_BUSINESS_APPS
 
 
@@ -111,11 +113,12 @@ DATABASES = {
         'NAME': 'csm',
         'USER': 'root',
         'PASSWORD': '123456',
-        'HOST': '139.196.208.113',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
 
+ # 'HOST': '139.196.208.113',
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
