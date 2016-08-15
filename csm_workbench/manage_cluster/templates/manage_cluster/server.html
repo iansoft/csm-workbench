@@ -28,76 +28,68 @@
 </div><!-- /.wizard-pf-sidebar -->
 
 <div id="dNetwork" class="wizard-pf-main hidden">
-    <form role="form" class="form-horizontal">
+    <form role="form" class="form">
         <div class="form-group">
-            <label class="col-md-3 control-label">Server Name:</label>
-            <div class="col-md-8">
-                <input  name="tabServerName" type="text" class="form-control"  placeholder="" required/>
-                <span class="help-block"></span>
-            </div>
+            <label class="control-label">Server Name:</label>
+            <input  name="tabServerName" type="text" class="form-control"  placeholder="" required/>
+            <span class="help-block"></span>
         </div>
         <div class="form-group">
-            <label class="col-md-3 control-label">Role:</label>
-            <div class="col-md-8">
-                <select name="tabServerRole" class="form-control">
-                    <option value="0">Monitor</option>
-                    <option value="1">RGW</option>
-                    <option value="2">Storage RGW</option>
-                </select>
-                <span class="help-block"></span>
-            </div>
+            <label class="control-label">Role:</label>
+            <select name="tabServerRole" class="form-control">
+                <option value="0">Monitor</option>
+                <option value="1">RGW</option>
+                <option value="2">Storage RGW</option>
+            </select>
+            <span class="help-block"></span>
         </div>
         <div class="form-group">
-            <label class="col-md-3 control-label">Zone:</label>
-            <div class="col-md-8">
-                <select name="tabServerZone" class="form-control">
-                    <option value="0">Zone1</option>
-                    <option value="1">Zone2</option>
-                    <option value="2">Zone3</option>
-                </select>
-                <span class="help-block"></span>
-            </div>
+            <label class="control-label">Zone:</label>
+            <select name="tabServerZone" class="form-control">
+                <option value="0">Zone1</option>
+                <option value="1">Zone2</option>
+                <option value="2">Zone3</option>
+            </select>
+            <span class="help-block"></span>
         </div>
         <div class="form-group">
-            <label class="col-md-3 control-label">Storage Group:</label>
-            <div class="col-md-8">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Weight</th>
-                            <th>Journal</th>
-                            <th>Data</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <select name="servertab_storage_group" class="form-control sg-name">
-                                    <option value="0">Storage Group1</option>
-                                    <option value="1">Storage Group2</option>
-                                    <option value="2">Storage Group3</option>
-                                </select>
-                            </td>
-                            <td>
-                                <input type="text" class="form-control sg-weight"  placeholder=""/>
-                            </td>
-                            <td>
-                                <input type="text" class="form-control sg-jounal"  placeholder=""/>
-                            </td>
-                            <td>
-                                <input type="text" class="form-control sg-data"  placeholder=""/>
-                            </td>
-                            <td>
-                                <span class="fa fa-times-circle fa-font-20 sg-remove" onclick="removeClusterStorageGroupRow(this)" style="display:none"></span>            
-                                <span class="fa fa-plus-circle  fa-font-20 sg-add" onclick="addClusterStorageGroupRow()"></span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <span class="help-block"></span>
-            </div>
+            <label class="control-label">Storage Group:</label>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Weight</th>
+                        <th>Journal</th>
+                        <th>Data</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <select name="servertab_storage_group" class="form-control sg-name">
+                                <option value="0">Storage Group1</option>
+                                <option value="1">Storage Group2</option>
+                                <option value="2">Storage Group3</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control sg-weight"  placeholder=""/>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control sg-jounal"  placeholder=""/>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control sg-data"  placeholder=""/>
+                        </td>
+                        <td>
+                            <span class="fa fa-times-circle fa-font-20 sg-remove" onclick="removeClusterStorageGroupRow(this)" style="display:none"></span>            
+                            <span class="fa fa-plus-circle  fa-font-20 sg-add" onclick="addClusterStorageGroupRow()"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <span class="help-block"></span>
         </div>
 
 
