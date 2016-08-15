@@ -1,3 +1,27 @@
+var SERVER_IP_LIST = [];
+var CLUSTER = {
+    network:{
+        controller:"",
+        management_ip:"",
+        management_ip_mask:"",
+        cluster_ip:"",
+        cluster_ip_mask:"",
+        public_ip:"",
+        public_ip_mask:"",
+    },
+    cluster:{
+        name:"",
+        file_system:"",
+        file_system_option:"",
+        zone:[],
+        storage_group:[],
+    },
+    settings:{
+        //TODO: later
+    },
+    server_list:[]
+}
+
 $(function(){
     console.log("Start Manage Cluster!");
 })
@@ -10,7 +34,7 @@ $("#mCreateCluster")
     .on('hidden.bs.modal', function () {
         //reset the step
         wizardStepIndex = 0; 
-        selectedStep(); 
+        selectedStep(wizardStepIndex); 
         // clean the add storage group items
         $(".sg-item-more").remove();
         $(".sg-name").val("");
@@ -28,17 +52,20 @@ $("#btnLastWizard").click(function(){
     if(wizardStepIndex == 0)
         return;    
     wizardStepIndex --;
-    selectedStep();
+    selectedStep(wizardStepIndex);
 });
 
 $("#btnNextWizard").click(function(){
     if(wizardStepIndex == wizardStepCount)
         return;
     wizardStepIndex ++;
-    selectedStep();
+    selectedStep(wizardStepIndex);
 });
 
-function selectedStep(){
+function selectedStep(selectedIndex){
+    // anyway, reset the current wizard index 
+    wizardStepIndex = selectedIndex;
+
     $(".wizard-pf-steps-indicator>li").each(function(index,element){
         if(wizardStepIndex == index)
             element.className = "active";
