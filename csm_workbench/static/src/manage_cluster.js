@@ -14,7 +14,7 @@ $("#mCreateCluster")
         // clean the add storage group items
         $(".sg-item-more").remove();
         $(".sg-name").val("");
-        $(".sg-value").val("");
+        $(".sg-value").val("ssd");
         $(".sg-add").show();
         $(".sg-remove").hide();
         console.log("Hidden The Modal!");
@@ -41,23 +41,35 @@ $("#btnNextWizard").click(function(){
 function selectedStep(){
     $(".wizard-pf-steps-indicator>li").each(function(index,element){
         if(wizardStepIndex == index)
-            element.className = "active"
+            element.className = "active";
         else
-            element.className = ""
+            element.className = "";
     });
 
     $(".wizard-pf-main").each(function(index,element){
         if(wizardStepIndex == index)
-            element.className = "wizard-pf-main"
+            element.className = "wizard-pf-main";
         else
-            element.className = "wizard-pf-main hidden"
+            element.className = "wizard-pf-main hidden";
     });
+
+    //if current step is setting server
+    if (wizardStepIndex == 2)
+        $(".wizard-pf-sidebar")[0].className = "wizard-pf-sidebar";
+    else
+        $(".wizard-pf-sidebar")[0].className = "wizard-pf-sidebar hidden";
 }
 
 //about cluster storage group method
 var sgItemHTML = "<tr class=\"sg-item sg-item-more\">"+
                 "    <td><input type=\"text\" class=\"form-control sg-name\" /></td>"+
-                "    <td><input type=\"text\" class=\"form-control sg-value\" /></td>"+
+                // "    <td><input type=\"text\" class=\"form-control sg-value\" /></td>"+
+                "    <td>" +
+                "       <select class=\"form-control sg-value\">" +
+                "           <option value=\"ssd\">ssd</option>" +
+                "           <option value=\"1500\">1500</option>" +
+                "       </select>" +
+                "    </td>" +
                 "    <td>"+
                 "        <span class=\"fa fa-times-circle fa-font-20 sg-remove\" style=\"display:none\" onclick=\"removeSGItem(this)\"></span>"+
                 "        <span class=\"fa fa-plus-circle  fa-font-20 sg-add\" onclick=\"addSGItem()\"></span>"+

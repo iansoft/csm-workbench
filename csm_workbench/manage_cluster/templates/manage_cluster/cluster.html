@@ -2,14 +2,14 @@
     <form id="fCluster" role="form" class="form-horizontal">
         <div class="form-group">
             <label class="col-md-3 control-label">Cluster Name:</label>
-            <div class="col-md-6 ">
+            <div class="col-md-8 ">
                 <input name="clusterName" id="txtClusterName" type="text" class="form-control"  placeholder=""/>
                 <span class="help-block"></span>
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-3 control-label">File System:</label>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <select name="fileSystem" id="selFileSystem" class="form-control">
                     <option value="XFS">XFS</option>
                     <option value="EXT4">EXT4</option>
@@ -19,21 +19,21 @@
         </div>
         <div class="form-group">
             <label class="col-md-3 control-label">File System Options:</label>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <input name="fileSystemOptions" id="txtFileSystemOptions" type="text" class="form-control"  placeholder=""/>
                 <span class="help-block"></span>
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-3 control-label">Zone:</label>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <input name="clusterZone" id="txtClusterZone" type="text" data-role="tagsinput" class="form-control" value="" >
                 <span class="help-block"></span>
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-3 control-label">Settings:</label>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <a id="btnClusterSettings" type="button" class="btn btn-info">Modify Settings</a>
                 <span class="help-block"></span>
             </div>
@@ -41,7 +41,7 @@
 
         <div class="form-group">
             <label class="col-md-3 control-label">Storage Group:</label>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <!--CLUSTER STORAGE GROUP-->
                 <table id="tCSG" class="table table-bordered">
                     <thead>
@@ -58,7 +58,10 @@
                                 <input type="text" class="form-control sg-name"/>
                             </td>
                             <td>
-                                <input type="text" class="form-control sg-value"/>
+                                <select name="" id="" class="form-control sg-value">
+                                    <option value="ssd">ssd</option>
+                                    <option value="1500">1500</option>
+                                </select>
                             </td>
                             <td>
                                 <span class="fa fa-times-circle fa-font-20 sg-remove" style="display:none" onclick="removeSGItem(this)"></span>            

@@ -27,7 +27,11 @@
 }
 
 .sg-name,
-.sg-value{
+.sg-value,
+.sg-weight,
+.sg-jounal,
+.sg-data{
+    width: 100%;
     border: none;
     border-bottom: 1px solid #ccc;
     box-shadow:none;
@@ -39,4 +43,13 @@
     margin-top: 5px;
     font-size: 18px;
     cursor: pointer;
+}
+
+
+.wizard-pf-sidebar .list-group-item>a{
+    height: 30px;
+    line-height: 10px;
+}
+.wizard-pf-sidebar .list-group-item.active>a:after{
+    line-height: 10px;
 }

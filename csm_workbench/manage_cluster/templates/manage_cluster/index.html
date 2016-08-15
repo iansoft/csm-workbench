@@ -45,31 +45,14 @@
                         </ul>
                     </div>
 
-                    <!--wizard sidebar-->
-                    <div class="wizard-pf-sidebar hidden" >
-                        <ul class="list-group">
-                            <li class="list-group-item" style="padding:10px 5px;">
-                                <form class="form-inline">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="txtServerName" placeholder="192.168.113.101" />
-                                    </div>
-                                    <button type="button" class="btn btn-primary">
-                                        <span class="i fa fa-plus"></span>
-                                    </button>
-                                </form>
-                            </li>
-                            <li class="list-group-item active">
-                                <a><span class="wizard-pf-substep-title">192.168.113.101</span></a>
-                            </li>
-                        </ul>
-                    </div><!-- /.wizard-pf-sidebar -->
-
                     <!--network content-->
                     {% include "manage_cluster/network.html" %}
 
                     <!--cluster content-->
                     {% include "manage_cluster/cluster.html" %}
 
+                    <!--server content-->
+                    {% include "manage_cluster/server.html" %}
                 </div><!-- /.wizard-pf-body -->
                 <!-- TODO: disable buttons -->
                 <div class="modal-footer wizard-pf-footer">
