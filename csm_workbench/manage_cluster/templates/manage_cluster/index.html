@@ -7,11 +7,92 @@
     {{ block.super }}
     {% load i18n %}
 
-    Manage Cluster
+    <div class="row">
+        <div class="col-md-12 page-actions">
+            <button id="btnAddAccount" class="btn btn-default" data-toggle="modal" data-target="#mCreateCluster" data-action="create">
+                Create Cluster
+            </button>
+        </div>
+    </div>
+
+     MatchCollection mc = Regex.Matches(str,@"\d{2,3}([.]\d{1,3}){3}:\d{2,5}");
+
+    <div id="mCreateCluster" class="modal fade"  tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg wizard-pf">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    <dt class="modal-title">Create Cluster</dt>
+                </div>
+                <div class="modal-body wizard-pf-body clearfix" >
+                    <!--wizard steps-->
+                    <div class="wizard-pf-steps">
+                        <ul class="wizard-pf-steps-indicator">
+                            <li class="active">
+                                <a><span class="wizard-pf-step-number">1</span><span class="wizard-pf-step-title">Network</span></a>
+                            </li>
+                            <li>
+                                <a><span class="wizard-pf-step-number">2</span><span class="wizard-pf-step-title">Cluster</span></a>
+                            </li>
+                            <li>
+                                <a><span class="wizard-pf-step-number">3</span><span class="wizard-pf-step-title">Server</span></a>
+                            </li>
+                            <li>
+                                <a><span class="wizard-pf-step-number">3</span><span class="wizard-pf-step-title">Preview</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--wizard sidebar-->
+                    <div class="wizard-pf-sidebar hidden" >
+                        <ul class="list-group">
+                            <li class="list-group-item" style="padding:10px 5px;">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="txtServerName" placeholder="192.168.113.101" />
+                                    </div>
+                                    <button type="button" class="btn btn-primary">
+                                        <span class="i fa fa-plus"></span>
+                                    </button>
+                                </form>
+                            </li>
+                            <li class="list-group-item active">
+                                <a><span class="wizard-pf-substep-title">192.168.113.101</span></a>
+                            </li>
+                        </ul>
+                    </div><!-- /.wizard-pf-sidebar -->
+
+                    <!--network content-->
+                    {% include "manage_cluster/network.html" %}
+
+                    <!--cluster content-->
+                    {% include "manage_cluster/cluster.html" %}
+
+                </div><!-- /.wizard-pf-body -->
+                <!-- TODO: disable buttons -->
+                <div class="modal-footer wizard-pf-footer">
+                    <button type="button" class="btn btn-default btn-cancel" data-dismiss="modal">Cancel</button>
+                    <button id="btnLastWizard" type="button" class="btn btn-default">
+                        <span class="i fa fa-angle-left"></span>
+                        Back
+                    </button>
+                    <button id="btnNextWizard" type="button" class="btn btn-primary" >
+                        Next
+                        <span class="i fa fa-angle-right"></span>
+                    </button>
+                </div><!-- /.wizard-pf-footer -->
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
 
 {% endblock %}
 
 {% block js %}
     {{ block.super }}
-    <script type="text/javascript" src="/static/dist/dashboard.bundle.js"></script>
+    <!--<script type="text/javascript" src="/static/dist/manage_cluster.bundle.js"></script>-->
+    <script type="text/javascript" src="/static/src/manage_cluster.js"></script>
 {% endblock %}

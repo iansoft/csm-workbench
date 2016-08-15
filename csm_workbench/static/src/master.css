@@ -25,3 +25,18 @@
 .page-actions{
     text-align: right;
 }
+
+.sg-name,
+.sg-value{
+    border: none;
+    border-bottom: 1px solid #ccc;
+    box-shadow:none;
+    -webkit-box-shadow:none;
+}
+
+.sg-add,
+.sg-remove{
+    margin-top: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
